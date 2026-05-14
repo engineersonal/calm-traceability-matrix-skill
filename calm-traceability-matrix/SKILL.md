@@ -63,11 +63,14 @@ page with `$skip=500`, then `$skip=1000`, until fewer than 500 are returned.
 ### STEP 3 — Build Lookup Indexes
 
 After fetching, build these five in-memory indexes:
+
+```
 feat_by_req_guid[feat.requirementId]      → feature record
 test_by_scope[test.scopeName]             → [list of test records]
 defect_by_tc[defect.testcaseId]           → defect record
 defect_by_scope[defect.scopeName]         → defect record (fallback)
 sp_status_by_scope[sp.scopeId]            → validated SP status string
+```
 
 See `references/api-guide.md` → "Index Building Rules" for join logic and
 the SP status validation list.
